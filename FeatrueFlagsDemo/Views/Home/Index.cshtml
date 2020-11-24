@@ -1,0 +1,46 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+
+
+@addTagHelper *, Microsoft.FeatureManagement.AspNetCore
+
+@{
+}
+
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    测试功能开关
+
+    <feature name="EnableWebApi">
+
+        <p>This can only be seen if 'EnableWebApi' is enabled.</p>
+
+    </feature>
+
+
+    <feature name="EnableWebApi" negate="true">
+        <p>这个是EnableWebApi关闭了才显示的内容</p>
+        <p>This will be shown if 'FeatureA' is disabled.</p>
+
+    </feature>
+
+
+    <feature name="EnableAudit, EnableWebApi" requirement="All">
+
+        <p>This can only be seen if 'EnableAudit' and 'EnableWebApi' are enabled.</p>
+
+    </feature>
+
+    <feature name="EnableAudit, EnableWebApi" requirement="Any">
+        EnableAudit', 'EnableWebApi', 最少有一个是开启的.</p>
+
+    </feature>
+</body>
+</html>
